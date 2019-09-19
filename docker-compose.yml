@@ -16,7 +16,7 @@ services:
       context: ./website/
     command: npm start
     volumes:
-      - ./website/:/usr/app
+      - ./website/:/usr/website/app
       - /usr/app/node_modules
     depends_on:
       - contant-service
