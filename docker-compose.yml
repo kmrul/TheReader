@@ -1,15 +1,23 @@
-version: '3.5'
+version: '3'
 services:
- contant-service:
-  build: ./content
-  ports:
-   - "4000:4000"
-  volumes:
-   - .:/content/app
-  environment:
-   - ENV=development
-   - PORT=4000
-   - DB=mongodb://mongodb:27017/todoDev
-networks:
- default:
-  name: contant-service
+   contant-service:
+    build: ./content
+    ports:
+    - "4000:4000"
+    volumes:
+    - .:/content/app
+    environment:
+      - ENV=development
+      - PORT=4000
+      - DB=mongodb://mongodb:27017/todoDev
+
+   website-service:
+    build: ./website
+    command: npm start
+    volumes:
+      - .:/website
+    depends_on:
+      - contant-service
+    ports:
+      - "3000:3000"
+
