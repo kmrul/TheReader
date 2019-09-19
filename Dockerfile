@@ -13,8 +13,8 @@ CMD ["npm", "start"]
 # Setup the server
 
 FROM python:3-onbuild
-ADD . /app
-WORKDIR /app
+ADD . /content/app
+WORKDIR /content/app
 EXPOSE 4000
 RUN pip install -r requirements.txt
 ENTRYPOINT ["python","index.py"]

@@ -12,10 +12,12 @@ services:
       - DB=mongodb://mongodb:27017/todoDev
 
    website-service:
-    build: ./website
+    build:
+      context: ./website/
     command: npm start
     volumes:
-      - .:/website
+      - ./website/:/usr/app
+      - /usr/app/node_modules
     depends_on:
       - contant-service
     ports:
