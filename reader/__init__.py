@@ -26,3 +26,7 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 from .views import *
+from .home.views import *
+from .dashboard.views import *
+from .posts.views import *
+from .posts.models import *

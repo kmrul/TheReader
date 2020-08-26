@@ -1,0 +1,53 @@
+{% extends 'base.html'%}
+
+{% block head %}
+    <title>Category | The Reader</title>
+{% endblock %}
+
+{% block body %}
+    <div class='col-10 mx-auto text-center'>
+        <h1>Add New Category</h1>
+        <div class='col-md-4 col-12 mx-auto my-3'>
+            <form class='form' method='POST'>
+                {{ form.csrf_token }}
+
+                <div  class="form-group">
+                    <label for='full_name'>{{ form.name.label }}</label>
+                    {{ form.name }}
+                    {% if form.name.errors %}
+                        <div class='alert alert-danger'>
+                            {% for error in form.name.errors %}
+                                <span class='mr-1'>{{error}}</span>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+
+                <button class='btn btn-primary my-3' type='submit'>Save</button>
+
+            </form>
+        </div>
+    </div>
+
+    <div class="category-list">
+
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for category in categories %}
+                <tr>
+                    <td>{{ category.id }}</td>
+                    <td>{{category.name}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

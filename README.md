@@ -1,2 +1,5 @@
 # TheReader
-Content Reader membership
+Read blog post using membership
+
+# ER Diagram 
+![ER Diagram]("TheReader-er-diagram.png")
