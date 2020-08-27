@@ -2,7 +2,7 @@ from flask import render_template, request, redirect, url_for
 from reader import app
 
 from .models import Categories
-from .form import CategoryForm
+from .forms import CategoryForm
 
 @app.route('/posts', methods=['GET', 'POST'])
 def posts():

@@ -5,7 +5,7 @@ from sqlalchemy import event
 
 class Posts(db.Model):
     id           = db.Column(db.Integer, primary_key=True) # primary_key
-    title         = db.Column(db.String(120), nullable=True)
+    title        = db.Column(db.String(120), nullable=True)
     content      = db.Column(db.String(5000), nullable=False)
     category_id  = db.Column(db.Integer, nullable=False)
     author_id    = db.Column(db.Integer, nullable=False)

@@ -1,9 +1,92 @@
-{% extends 'base.html' %}
+{% extends 'base.html'%}
 
 {% block head %}
     <title>Membership | The Reader</title>
 {% endblock %}
 
 {% block body %}
-    <b>I am membership</b>
+    <section class="section">
+        <div class='col-10 mx-auto '>
+            <h1 class="heading-title text-center">Add New Membership</h1>
+            <p class="text-center sub-title">Add a membership type</p>
+            <div class=''>
+                <form class='form' method='POST'>
+                    {{ form.csrf_token }}
+                    
+                    <div class="row">
+                        <div class="col-6">
+                            <div  class="form-group">
+                                <label for='name'>{{ form.name.label }}</label>
+                                {{ form.name }}
+                                {% if form.name.errors %}
+                                    <div class='alert alert-danger'>
+                                        {% for error in form.name.errors %}
+                                            <span class='mr-1'>{{error}}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        
+                        <div class="col-6">
+                            <div  class="form-group">
+                                <label for='slug'>{{ form.price.label }}</label>
+                                {{ form.price }}
+                                {% if form.name.errors %}
+                                    <div class='alert alert-danger'>
+                                        {% for error in form.price.errors %}
+                                            <span class='mr-1'>{{error}}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        
+                        <div class="col-12">
+                            <div  class="form-group">
+                                <label for='slug'>{{ form.post_limit.label }}</label>
+                                {{ form.post_limit }}
+                                {% if form.post_limit.errors %}
+                                    <div class='alert alert-danger'>
+                                        {% for error in form.post_limit.errors %}
+                                            <span class='mr-1'>{{error}}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+    
+    
+                    <button class='btn btn-primary' type='submit'>Save</button>
+    
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="category-list section">
+        <h1 class="heading-title">List of Membership</h1>
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Price (Tk.)</th>
+                <th scope="col">Post Limit (Readable)</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for membership in memberships %}
+                <tr>
+                    <td>{{ membership.id }}</td>
+                    <td>{{ membership.name }}</td>
+                    <td>{{ membership.price }}</td>
+                    <td>{{ membership.post_limit }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
 {% endblock %}
