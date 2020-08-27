@@ -13,9 +13,11 @@ def category():
     form = CategoryForm()
     if form.validate_on_submit():
         data = {
-            "name": form.name.data
+            "name": form.name.data,
+            "slug": form.slug.data,
+            "description": form.description.data,
         }
-        obj = Categories.query.filter_by(name=form.name.data).first()
+        obj = Categories.query.filter_by(name=form.name.data,slug=form.slug.data, description=form.slug.data).first()
         if obj is None:
             obj = Categories(**data)
             obj.save()

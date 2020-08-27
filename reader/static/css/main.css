@@ -1,3 +1,27 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f8;
 }
+
+.heading-title{
+    font-size: 30px;
+    margin-bottom: .8rem;
+    line-height: 1.222;
+    font-weight: 700;
+    letter-spacing: -.075rem;
+    padding: 0px 15px;
+}
+
+.sub-title{
+    color: #637381;
+    font-size: 18px;
+    display: block;
+    padding-bottom: 50px;
+}
+
+.section {
+    background-color: #fff;
+    margin: 20px 0;
+    padding: 25px 0;
+}
+

@@ -12,7 +12,7 @@ csrf = CSRFProtect(app)
 # secret key 
 # wtf csrf secret key
 
-db_path = os.path.join(os.path.dirname(__file__), 'db.sqlite3')
+db_path = os.path.join(os.path.dirname(__file__), 'db_the_reader.sqlite3')
 db_uri = 'sqlite:///{}'.format(db_path)
 
 app.config.update(dict(
@@ -28,5 +28,9 @@ migrate = Migrate(app, db)
 from .views import *
 from .home.views import *
 from .dashboard.views import *
+
 from .posts.views import *
 from .posts.models import *
+
+from .membership.models import *
+from .membership.views import *

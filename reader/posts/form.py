@@ -14,3 +14,15 @@ class CategoryForm(FlaskForm):
                     message='Category name is required'
             )
         ])
+    slug = StringField('Slug', 
+        render_kw={"class": "form-control", 
+            "placeholder": "Slug"},
+        validators=[
+            validators.DataRequired(
+                    message='Slug name is required'
+            )
+        ])
+    description = StringField('Description', 
+        render_kw={"class": "form-control", 
+            "placeholder": "Description"},
+        )
