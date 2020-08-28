@@ -34,3 +34,6 @@ from .posts.models import *
 
 from .membership.models import *
 from .membership.views import *
+
+from .role.models import *
+from .role.views import *

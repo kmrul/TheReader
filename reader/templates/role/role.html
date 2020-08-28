@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Role | The Reader</title>
+{% endblock %}
+
+{% block body %}
+    <section class="section">
+        <div class='col-10 mx-auto '>
+            <h1 class="heading-title text-center">Add New Role</h1>
+            <p class="text-center sub-title">Add a role type</p>
+            <div class=''>
+                <form class='form' method='POST'>
+                    {{ form.csrf_token }}
+                    
+                    <div class="row">
+                        <div class="col-6">
+                            <div  class="form-group">
+                                <label for='name'>{{ form.name.label }}</label>
+                                {{ form.name }}
+                                {% if form.name.errors %}
+                                    <div class='alert alert-danger'>
+                                        {% for error in form.name.errors %}
+                                            <span class='mr-1'>{{error}}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        
+                    </div>
+    
+    
+                    <button class='btn btn-primary' type='submit'>Save</button>
+    
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="category-list section">
+        <h1 class="heading-title">List of Role</h1>
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for role in roles %}
+                <tr>
+                    <td>{{ role.id }}</td>
+                    <td>{{ role.name }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}
