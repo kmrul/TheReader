@@ -37,3 +37,6 @@ from .membership.views import *
 
 from .role.models import *
 from .role.views import *
+
+from .user.models import *
+from .user.views import *
